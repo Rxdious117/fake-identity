@@ -3,7 +3,6 @@ import random
 class ages():
     toddler = 1,3
     minor = 4,17
-    pedo_catching = 13,15
     adult = 18,69
     elderly = 70,90
     deathbed = 91,110
@@ -259,9 +258,3 @@ class Generate:
 
     def new_hobby(hobby_list):
         return random.choice(hobby_list)
-
-print("Hey! my name is "+Generate.new_name(name.woman)+" :)")
-print("I am " + str(Generate.new_age(ages.pedo_catching)) + " Years old")
-print("And i come from " + Generate.new_nationality(nationality.North_America))
-print("My favorite food is " + Generate.new_favorite_food(food))
-print("my hobies are " + Generate.new_hobby(hobbies) + " and " + Generate.new_hobby(hobbies))
