@@ -1,0 +1,277 @@
+#this is a library which lets you randomly generate stuff
+import random
+
+#in this class you can put all your age ranges, these are the presets
+class ages():
+    toddler = 1,3
+    minor = 4,17
+    pedo_catching = 13,15
+    adult = 18,69
+    elderly = 70,90
+    deathbed = 91,110
+
+  #this is all the hobies preset, you can put in your own
+hobbies = ("Reading", "Photography", "Cooking", "Hiking", "Painting",
+         "Gardening", "Writing", "Playing Chess", "Cycling", "Traveling",
+        "Playing Guitar", "Bird Watching", "Sculpting", "Fishing", "Meditation",
+        "Surfing", "Collecting Stamps", "Singing", "Mountain Climbing", "Dancing",
+        "Video Gaming", "Baking", "Archery", "Skiing", "Volunteering",
+        "Camping", "Yoga", "Drawing", "Fossil Hunting", "Running",
+        "Knitting", "Skydiving", "Acting", "Sudoku", "Model Building",
+        "Origami", "Karaoke", "Scuba Diving", "Billiards", "Photography",
+        "Cycling", "Calligraphy", "Wine Tasting", "Pottery", "Astrophotography",
+        "Board Games", "Fencing", "Ice Skating", "Rock Climbing", "Juggling",
+        "Puzzle Solving", "Learn Magic Tricks", "Woodworking", "Geocaching", "Genealogy",
+        "Whittling", "Tea Tasting", "Parkour", "Soap Making", "Magic: The Gathering",
+        "Amateur Radio", "Home Brewing", "Glassblowing", "Astrology", "Candle Making",
+        "Caving", "Falconry", "Robotics", "Virtual Reality", "Go-Kart Racing",
+        "Fire Dancing", "Curling", "LARPing", "Lock Picking", "Kite Flying",
+        "Motorcycling", "Metal Detecting", "Foraging", "Escape Rooms", "Beekeeping",
+        "Stand-up Comedy", "Powerlifting", "Puppetry", "Backpacking", "Ghost Hunting",
+        "Wakeboarding", "Jewelry Making", "Meteorology", "Dodgeball", "Synchronized Swimming",
+        "Ziplining", "Sand Sculpting", "Tarot Reading", "Writing Poetry", "Letterboxing",
+        "Kite Surfing", "Leathercraft", "Retro Gaming", "Darts", "Crossword Puzzles",
+        "Speedcubing", "Film Making", "Laser Tag", "Card Throwing", "Blacksmithing",
+        "Aquascaping", "Storm Chasing", "Snorkeling", "Cup Stacking", "Freerunning",
+        "cooking","gaming","tennis","football/soccer","fitness")
+
+  #this is the food database preset, you can also add your own stuff, and remove stuff.
+food = ("Pizza", "Burger", "Sushi", "Chocolate", "Pasta",
+        "Ice Cream", "Steak", "Salad", "Tacos", "Cheesecake",
+        "Cereal", "Chicken Wings", "Lasagna", "Burrito", "Dumplings",
+        "Mango", "Pancakes", "Shrimp Scampi", "Nachos", "Risotto",
+        "Garlic Bread", "Pho", "Gyoza", "Avocado Toast", "Hot Dog",
+        "Cupcakes", "French Toast", "Sashimi", "Hummus", "Pad Thai",
+        "Cobb Salad", "Cannoli", "Ceviche", "Bagels", "Clam Chowder",
+        "Donuts", "Guacamole", "Egg Rolls", "Miso Soup", "Pretzels",
+        "Ramen", "Fish and Chips", "Goulash", "Jambalaya", "Tiramisu",
+        "Macarons", "Popcorn", "Falafel", "Lobster Roll", "Tom Yum",
+        "Poutine", "Pierogi", "Gazpacho", "Bruschetta", "Churros",
+        "Fried Rice", "Pulled Pork Sandwich", "Fajitas", "Creme Brulee", "Baklava",
+        "Cinnamon Rolls", "Gingerbread Cookies", "Beef Stroganoff", "Croissants", "Caprese Salad",
+        "Ratatouille", "Coq au Vin", "Cucumber Rolls", "Mochi", "Buffalo Wings",
+        "Garlic Shrimp", "Stuffed Bell Peppers", "Kebabs", "Key Lime Pie", "Peking Duck",
+        "Pralines", "Empanadas", "Papaya Salad", "Tofu Stir-Fry", "Caramel Apples",
+        "Cheese Fondue", "Deviled Eggs", "Lemon Bars", "Baba Ganoush", "Borscht",
+        "Escargot", "Pumpkin Pie", "Ravioli", "Teriyaki Chicken", "Tuna Tartare",
+        "Vindaloo", "Zucchini Bread", "Samosas", "Oysters Rockefeller", "Pumpkin Soup")
+
+  #here is allot of last names, first names of men and wemen, again you can make your own presets in here, and change the pre-existing presets
+class name:
+    man = ("Liam", "Noah", "Oliver", "James", "Elijah", "William", "Henry", "Lucas", "Benjamin", "Theodore",
+    "Mateo", "Levi", "Sebastian", "Daniel", "Jack", "Michael", "Alexander", "Owen", "Asher", "Samuel",
+    "Ethan", "Leo", "Jackson", "Mason", "Ezra", "John", "Hudson", "Luca", "Aiden", "Joseph", "David",
+    "Jacob", "Logan", "Luke", "Julian", "Gabriel", "Grayson", "Wyatt", "Matthew", "Maverick", "Dylan",
+    "Isaac", "Elias", "Anthony", "Thomas", "Jayden", "Carter", "Santiago", "Ezekiel", "Charles", "Josiah",
+    "Caleb", "Cooper", "Lincoln", "Miles", "Christopher", "Nathan", "Isaiah", "Kai", "Joshua", "Andrew",
+    "Angel", "Adrian", "Cameron", "Nolan", "Waylon", "Jaxon", "Roman", "Eli", "Wesley", "Aaron", "Ian",
+    "Christian", "Ryan", "Leonardo", "Brooks", "Axel", "Walker", "Jonathan", "Easton", "Everett", "Weston",
+    "Bennett", "Robert", "Jameson", "Landon", "Silas", "Jose", "Beau", "Micah", "Colton", "Jordan", "Jeremiah",
+    "Parker", "Greyson", "Rowan", "Adam", "Nicholas", "Theo", "Xavier", "Hunter", "Dominic", "Jace", "Gael",
+    "River", "Thiago", "Kayden", "Damian", "August", "Carson", "Austin", "Myles", "Amir", "Declan", "Emmett",
+    "Ryder", "Luka", "Connor", "Jaxson", "Milo", "Enzo", "Giovanni", "Vincent", "Diego", "Luis", "Archer",
+    "Harrison", "Kingston", "Atlas", "Jasper", "Sawyer", "Legend", "Lorenzo", "Evan", "Jonah", "Chase", "Bryson",
+    "Adriel", "Nathaniel", "Arthur", "Juan", "George", "Cole", "Zion", "Jason", "Ashton", "Carlos", "Calvin",
+    "Brayden", "Elliot", "Rhett", "Emiliano", "Ace", "Jayce", "Graham", "Max", "Braxton", "Leon", "Ivan", "Hayden",
+    "Jude", "Malachi", "Dean", "Tyler", "Jesus", "Zachary", "Kaiden", "Elliott", "Arlo", "Emmanuel", "Ayden", "Bentley",
+    "Maxwell", "Amari", "Ryker", "Finn", "Antonio", "Charlie", "Maddox", "Justin", "Judah", "Kevin", "Dawson", "Matteo",
+    "Miguel", "Zayden", "Camden", "Messiah", "Alan", "Alex", "Nicolas", "Felix", "Alejandro", "Jesse", "Beckett", "Matias",
+    "Tucker", "Emilio", "Xander", "Knox", "Oscar", "Beckham", "Timothy", "Abraham", "Andres", "Gavin", "Brody", "Barrett",
+    "Hayes", "Jett", "Brandon", "Joel", "Victor", "Peter", "Abel", "Edward", "Karter", "Patrick", "Richard", "Grant",
+    "Avery", "King", "Caden", "Adonis", "Riley", "Tristan", "Kyrie", "Blake", "Eric", "Griffin", "Malakai", "Rafael",
+    "Israel", "Tate", "Lukas", "Nico", "Marcus", "Stetson", "Javier", "Colt", "Omar", "Simon", "Kash", "Remington",
+    "Jeremy", "Louis", "Mark", "Lennox", "Callum", "Kairo", "Nash", "Kyler", "Dallas", "Crew", "Preston", "Paxton",
+    "Steven", "Zane", "Kaleb", "Lane", "Phoenix", "Paul", "Cash", "Kenneth", "Bryce", "Ronan", "Kaden", "Maximiliano",
+    "Walter", "Maximus", "Emerson", "Hendrix", "Jax", "Atticus", "Zayn", "Tobias", "Cohen", "Aziel", "Kayson", "Rory",
+    "Brady", "Finley", "Holden", "Jorge", "Malcolm", "Clayton", "Niko", "Francisco", "Josue", "Brian", "Bryan", "Cade",
+    "Colin", "Andre", "Cayden", "Aidan", "Muhammad", "Derek", "Ali", "Elian", "Bodhi", "Cody", "Jensen", "Damien", "Martin",
+    "Cairo", "Ellis", "Khalil", "Otto", "Zander", "Dante", "Ismael", "Angelo", "Brantley", "Manuel", "Colson", "Cruz", "Tatum",
+    "Jaylen", "Jaden", "Erick", "Cristian", "Romeo", "Milan", "Reid", "Cyrus", "Leonel", "Joaquin", "Ari", "Odin", "Orion",
+    "Ezequiel", "Gideon", "Daxton", "Warren", "Casey", "Anderson", "Spencer", "Karson", "Eduardo", "Chance", "Fernando",
+    "Raymond", "Bradley", "Cesar", "Wade", "Prince", "Julius", "Dakota", "Kade", "Koa", "Raiden", "Callan", "Hector",
+    "Onyx", "Remy", "Ricardo", "Edwin", "Stephen", "Kane", "Saint", "Titus", "Desmond", "Killian", "Sullivan", "Mario",
+    "Jay", "Kamari", "Luciano", "Royal", "Zyaire", "Marco", "Wilder", "Russell", "Nasir", "Rylan", "Archie", "Jared",
+    "Gianni", "Kashton", "Kobe", "Sergio", "Travis", "Marshall", "Iker", "Briggs", "Gunner", "Apollo", "Bowen", "Baylor",
+    "Sage", "Tyson", "Kyle", "Oakley", "Malik", "Mathias", "Sean", "Armani", "Hugo", "Johnny", "Sterling", "Forrest", "Harvey",
+    "Banks", "Grady", "Kameron", "Jake", "Franklin", "Lawson", "Tanner", "Eden", "Jaziel", "Pablo", "Reed", "Pedro", "Zayne",
+    "Royce", "Edgar", "Ibrahim", "Winston", "Ronin", "Leonidas", "Devin", "Damon", "Noel", "Rhys", "Clark", "Corbin", "Sonny",
+    "Colter", "Esteban", "Erik", "Baker", "Adan", "Dariel", "Kylo", "Tripp", "Caiden", "Frank", "Solomon", "Major", "Memphis",
+    "Quinn", "Dax", "Hank", "Donovan", "Finnegan", "Nehemiah", "Andy", "Camilo", "Asa", "Jeffrey", "Santino", "Isaias", "Jaiden",
+    "Kian", "Fabian", "Callen", "Ruben", "Alexis", "Emanuel", "Francis", "Garrett", "Kendrick", "Matthias", "Wells", "Augustus",
+    "Jasiah", "Alijah", "Alonzo", "Koda", "Collin", "Ford", "Frederick", "Jaxton", "Kohen", "Troy", "Kason", "Seth", "Denver",
+    "Kyson", "Ares", "Raphael", "Bodie", "Sylas", "Uriel", "Zaiden", "Shiloh", "Lewis", "Kieran", "Marcos", "Bo", "Shepherd",
+    "Philip", "Zaire", "Gregory", "Princeton", "Roberto", "Leland", "Eithan", "Moshe", "Johnathan", "Lucca", "Kenzo", "Mack",
+    "Porter", "Kolton", "Kaison", "Valentino", "Saul", "Shane", "Jamari", "Rocco", "Kylan", "Deacon", "Dalton", "Moses", "Callahan",
+    "Tadeo", "Makai", "Amiri", "Rowen", "Drew", "Jalen", "Kylian", "Sutton", "Dominick", "Reece", "Rodrigo", "Soren", "Kasen",
+    "Ridge", "Zachariah", "Jamir", "Peyton", "Omari", "Trevor", "Morgan", "Izaiah", "Alessandro", "Kaysen", "Enrique", "Marcelo",
+    "Sincere", "Lucian", "Leandro", "Armando", "Braylen", "Jayson", "Julio", "Lawrence", "Cassius", "Raul", "Jase", "Mohammad",
+    "Zain", "Jayceon", "Jonas", "Ronald", "Ayaan", "Rio", "Allen", "Bruce", "Mohamed", "Dorian", "Maximilian", "Keegan", "Shawn",
+    "Yusuf", "Pierce", "Ariel", "Ander", "Conor", "Conrad", "Phillip", "Arjun", "Roy", "Moises", "Arturo", "Johan", "Gerardo",
+    "Atreus", "Nikolai", "Braylon", "Samson", "Hezekiah", "Kayce", "Scott", "Gunnar", "Jamison", "Samir", "Keanu", "Ledger",
+    "Jaime", "Finnley", "Cannon", "Colby", "Nikolas", "Emmitt", "Kamden", "Miller", "Boone", "Hamza", "Ocean", "Mac", "Anakin",
+    "Brixton", "Roland", "Huxley", "Zeke", "Danny", "Marvin", "Otis", "Albert", "Clay", "Emir", "Boston", "Bruno", "Lionel", "Ozzy",
+    "Taylor", "Jamie", "Augustine", "Chaim", "Krew", "Rayan", "Alden", "Bellamy", "Amos", "Drake", "Davis", "Dustin", "Corey", "Ahmad",
+    "Conner", "Gustavo", "Layton", "Abram", "Axton", "Chandler", "Azariah", "Reese", "Benson", "Tru", "Case", "Trey", "Mauricio")
+
+    woman = ('Olivia', 'Emma', 'Charlotte', 'Amelia', 'Sophia', 'Isabella', 'Ava', 'Mia', 'Evelyn', 'Luna',
+    'Harper', 'Camila', 'Sofia', 'Scarlett', 'Elizabeth', 'Eleanor', 'Emily', 'Chloe', 'Mila', 'Violet',
+    'Penelope', 'Gianna', 'Aria', 'Abigail', 'Ella', 'Avery', 'Hazel', 'Nora', 'Layla', 'Lily', 'Aurora',
+    'Nova', 'Ellie', 'Madison', 'Grace', 'Isla', 'Willow', 'Zoe', 'Riley', 'Stella', 'Eliana', 'Ivy',
+    'Victoria', 'Emilia', 'Zoey', 'Naomi', 'Hannah', 'Lucy', 'Elena', 'Lillian', 'Maya', 'Leah', 'Paisley',
+    'Addison', 'Natalie', 'Valentina', 'Everly', 'Delilah', 'Leilani', 'Madelyn', 'Kinsley', 'Ruby', 'Sophie',
+    'Alice', 'Genesis', 'Claire', 'Audrey', 'Sadie', 'Aaliyah', 'Josephine', 'Autumn', 'Brooklyn', 'Quinn',
+    'Kennedy', 'Cora', 'Savannah', 'Caroline', 'Athena', 'Natalia', 'Hailey', 'Aubrey', 'Emery', 'Anna',
+    'Iris', 'Bella', 'Eloise', 'Skylar', 'Jade', 'Gabriella', 'Ariana', 'Maria', 'Adeline', 'Lydia', 'Sarah',
+    'Nevaeh', 'Serenity', 'Liliana', 'Ayla', 'Everleigh', 'Raelynn', 'Allison', 'Madeline', 'Vivian', 'Maeve',
+    'Lyla', 'Samantha', 'Rylee', 'Eva', 'Melody', 'Clara', 'Hadley', 'Julia', 'Piper', 'Juniper', 'Parker',
+    'Brielle', 'Eden', 'Remi', 'Josie', 'Rose', 'Arya', 'Eliza', 'Charlie', 'Peyton', 'Daisy', 'Lucia', 'Millie',
+    'Margaret', 'Freya', 'Melanie', 'Elliana', 'Adalynn', 'Alina', 'Emersyn', 'Sienna', 'Mary', 'Isabelle', 'Alaia',
+    'Esther', 'Sloane', 'Mackenzie', 'Amara', 'Ximena', 'Sage', 'Cecilia', 'Valeria', 'Reagan', 'Valerie', 'Catalina',
+    'River', 'Magnolia', 'Kehlani', 'Summer', 'Ashley', 'Andrea', 'Isabel', 'Oakley', 'Olive', 'Oaklynn', 'Ember',
+    'Kaylee', 'Georgia', 'Juliette', 'Anastasia', 'Genevieve', 'Katherine', 'Blakely', 'Reese', 'Amaya', 'Emerson',
+    'Brianna', 'June', 'Alani', 'Lainey', 'Arianna', 'Rosalie', 'Sara', 'Jasmine', 'Ruth', 'Adalyn', 'Ada', 'Bailey',
+    'Ariella', 'Wren', 'Myla', 'Khloe', 'Callie', 'Elsie', 'Alexandra', 'Ryleigh', 'Faith', 'Norah', 'Margot', 'Zuri',
+    'Journee', 'Aspen', 'Gemma', 'Kylie', 'Molly', 'Blake', 'Zara', 'Alaina', 'Alana', 'Brynlee', 'Amy', 'Annie', 'Saylor',
+    'Ana', 'Amira', 'Kimberly', 'Noelle', 'Kamila', 'Morgan', 'Phoebe', 'Harmony', 'Sutton', 'Taylor', 'Finley', 'Lilah',
+    'Juliana', 'Lila', 'Londyn', 'Kailani', 'Vera', 'Kaia', 'Angela', 'Hallie', 'Diana', 'Lennon', 'Presley', 'Arabella',
+    'Aliyah', 'Lilly', 'Milani', 'Jordyn', 'Camille', 'Ariel', 'Aubree', 'Selena', 'Sawyer', 'Nyla', 'Delaney', 'Mariana',
+    'Rachel', 'Adaline', 'Leila', 'Collins', 'Lia', 'Octavia', 'Kali', 'Lena', 'Kiara', 'Kaylani', 'Elaina', 'Daniela',
+    'Leia', 'Gracie', 'Dakota', 'Elise', 'Hope', 'Harlow', 'Lola', 'Stevie', 'Malia', 'Miriam', 'Alora', 'Gia', 'Evangeline',
+    'Brooke', 'Lilith', 'Sydney', 'Ophelia', 'Alayna', 'Tatum', 'Evie', 'Rowan', 'Marley', 'Daphne', 'Kayla', 'Dahlia', 'Lucille',
+    'Blair', 'Adelaide', 'Wrenley', 'Haven', 'Teagan', 'Adelyn', 'Alyssa', 'Payton', 'Jane', 'Mckenna', 'Celeste', 'Juliet',
+    'Palmer', 'Maggie', 'Rebecca', 'London', 'Noa', 'Samara', 'Thea', 'Kendall', 'Mya', 'Talia', 'Winter', 'Angelina', 'Vivienne',
+    'Esme', 'Laila', 'Nina', 'Trinity', 'Vanessa', 'Mabel', 'Camilla', 'Jocelyn', 'Journey', 'Paige', 'Phoenix', 'Amina', 'Alivia',
+    'Amari', 'Joanna', 'Nicole', 'Annabelle', 'Raegan', 'Aitana', 'Julianna', 'Lauren', 'Catherine', 'Adriana', 'Madilyn', 'Harley',
+    'Tessa', 'Evelynn', 'Elianna', 'Rory', 'Dream', 'Nayeli', 'Poppy', 'Gabriela', 'Jayla', 'Cataleya', 'Celine', 'Hayden', 'Shiloh',
+    'Mariah', 'Charlee', 'Maisie', 'Regina', 'Adelynn', 'Briella', 'Giselle', 'Fatima', 'Danna', 'Alessia', 'Mckenzie', 'Wynter', 'Fiona',
+    'Brooklynn', 'Gracelynn', 'Luciana', 'Alexis', 'Everlee', 'Laura', 'Selah', 'Reign', 'Alayah', 'Rosemary', 'Lilliana', 'Ariyah', 'Heidi',
+    'Esmeralda', 'Logan', 'Amora', 'Kalani', 'Leighton', 'Cali', 'Melissa', 'Aniyah', 'Izabella', 'Michelle', 'Raelyn', 'Alessandra', 'Viviana',
+    'Madeleine', 'Arielle', 'Serena', 'Francesca', 'Brynn', 'Gwendolyn', 'Kira', 'Destiny', 'Elle', 'Makayla', 'Alaya', 'Malani', 'Willa', 'Saige',
+    'Makenna', 'Remington', 'Demi', 'Adelina', 'Raya', 'Astrid', 'Azalea', 'Veronica', 'Meadow', 'Anaya', 'Elisa', 'Raven', 'Alexandria', 'Hattie',
+    'Alicia', 'Sabrina', 'Gracelyn', 'Matilda', 'Skye', 'Annalise', 'Frances', 'Miracle', 'Maia', 'Helen', 'Lana', 'Daleyza', 'Rosie', 'Charli', 'Bianca',
+    'Royalty', 'Sarai', 'Amiyah', 'Nylah', 'Aylin', 'Maryam', 'Scarlet', 'Antonella', 'Sylvia', 'Sylvie', 'Nadia', 'Ari', 'Lexi', 'Mylah', 'Julieta', 'Lorelei',
+    'Avianna', 'Armani', 'Camryn', 'Emely', 'Rylie', 'Colette', 'Daniella', 'Liana', 'Brinley', 'Kate', 'Salem', 'Marlee', 'Alison', 'Carmen', 'Felicity', 'Fernanda',
+    'Holly', 'Ariah', 'Aisha', 'Kora', 'Amanda', 'Ailani', 'Elaine', 'Emory', 'Joy', 'Oaklee', 'Lyric', 'Madelynn', 'Haisley', 'Allie', 'Helena', 'Danielle', 'Katalina',
+    'Carolina', 'Zariah', 'Navy', 'Cassidy', 'Lorelai', 'Stephanie', 'Alma', 'Mira', 'Legacy', 'Jolene', 'Anya', 'Dorothy', 'Paris', 'Yaretzi', 'Aurelia', 'Maddison', 'Renata',
+    'Jimena', 'Xiomara', 'Itzel', 'Heaven', 'Lyra', 'Estella', 'Gabrielle', 'Maren', 'Jacqueline', 'Jennifer', 'Imani', 'Jordan', 'Paislee', 'Ainsley', 'Emmy', 'Jessica', 'Alondra',
+    'Mae', 'Makenzie', 'Bristol', 'Edith', 'Cameron', 'Elora', 'Jazlyn', 'Averie', 'Ivory', 'Kenzie', 'Emelia', 'Angel', 'Cecelia', 'Maliyah', 'Oakleigh', 'Opal', 'Oaklyn', 'Kinley',
+    'Kayleigh', 'Bonnie', 'April', 'Kamryn', 'Mallory', 'Briar', 'Leona', 'Keira', 'Alexa', 'Macie', 'Ariya', 'Briana', 'Virginia', 'Skyler', 'Amber', 'Hanna', 'Monroe', 'Frankie',
+    'Miranda', 'Dayana', 'Charleigh', 'Meredith', 'Carter', 'Sierra', 'Sunny', 'Indie', 'Eve', 'Beatrice', 'Nalani', 'Kyla', 'Clementine', 'Katie', 'Kennedi', 'Myra', 'Blaire', 'Davina',
+    'Faye', 'Anahi', 'Madisyn', 'Alejandra', 'Alanna', 'Ivanna', 'Mariam', 'Yara', 'Anne', 'Addilyn', 'Braelynn', 'Lilian', 'Dylan', 'Amirah', 'Lina', 'Reyna', 'Amalia', 'Amani', 'Ryan',
+    'Calliope', 'Isabela', 'Michaela', 'Abby', 'Alia', 'Emerie', 'Lylah', 'Holland', 'Sevyn', 'Winnie', 'Leyla', 'Shelby', 'Rosalia', 'Zariyah', 'Rhea', 'Emberly', 'Marie', 'Nia', 'Remy',
+    'Chaya', 'Haley', 'Kaliyah', 'Rosa', 'Zahra', 'Jayleen', 'Karsyn', 'Malaysia', 'Jaliyah', 'Mina', 'Kensley', 'Lennox', 'Maxine', 'Hadassah', 'Mikayla', 'Margo', 'Noah', 'Azariah', 'Mara',
+    'Eileen', 'Florence', 'Melany', 'Reina', 'Journi', 'Amaia', 'Kaitlyn', 'Elliott', 'Kelsey', 'Nola', 'Gloria', 'Keilani', 'Freyja', 'Arleth', 'Jenna', 'Sloan', 'Analia', 'Louise', 'Melina',
+    'Sasha', 'Dior', 'Thalia', 'Noemi', 'Maci', 'Dallas', 'Marina', 'Aliana', 'Ezra', 'Adley', 'Cassandra', 'Aleena', 'Leslie', 'Capri', 'Mckinley', 'Angelica', 'Romina', 'Della', 'Kathryn',
+    'Kyra', 'Milan', 'Tiana', 'Khaleesi', 'Nellie', 'Cleo', 'Murphy', 'Bethany', 'Irene', 'Ellianna', 'Zelda', 'Aleah', 'Janelle', 'Yareli', 'Adalee', 'Dani', 'Marceline', 'Coraline', 'Estrella',
+    'Ila', 'Iyla', 'Mavis', 'Kenna', 'Vienna', 'Zendaya', 'Cheyenne', 'Erin', 'Karla', 'Mikaela', 'Jazmin', 'Persephone', 'Elodie', 'Selene', 'Chelsea', 'Scout', 'Theodora', 'Lara', 'Marilyn',
+    'Novah', 'Ellis', 'Charley', 'Jemma', 'Amayah', 'Karina', 'Kendra')
+
+    last_name = ("Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez",
+    "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin",
+    "Lee", "Perez", "Thompson", "White", "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson",
+    "Walker", "Young", "Allen", "King", "Wright", "Scott", "Torres", "Nguyen", "Hill", "Flores", "Green",
+    "Adams", "Nelson", "Baker", "Hall", "Rivera", "Campbell", "Mitchell", "Carter", "Roberts", "Gomez",
+    "Phillips", "Evans", "Turner", "Diaz", "Parker", "Cruz", "Edwards", "Collins", "Reyes", "Stewart",
+    "Morris", "Morales", "Murphy", "Cook", "Rogers", "Gutierrez", "Ortiz", "Morgan", "Cooper", "Peterson",
+    "Bailey", "Reed", "Kelly", "Howard", "Ramos", "Kim", "Cox", "Ward", "Richardson", "Watson", "Brooks",
+    "Chavez", "Wood", "James", "Bennett", "Gray", "Mendoza", "Ruiz", "Hughes", "Price", "Alvarez", "Castillo",
+    "Sanders", "Patel", "Myers", "Long", "Ross", "Foster", "Jimenez", "Powell", "Jenkins", "Perry", "Russell",
+    "Sullivan", "Bell", "Coleman", "Butler", "Henderson", "Barnes", "Gonzales", "Fisher", "Vasquez", "Simmons",
+    "Romero", "Jordan", "Patterson", "Alexander", "Hamilton", "Graham", "Reynolds", "Griffin", "Wallace", "Moreno",
+    "West", "Cole", "Hayes", "Bryant", "Herrera", "Gibson", "Ellis", "Tran", "Medina", "Aguilar", "Stevens",
+    "Murray", "Ford", "Castro", "Marshall", "Owens", "Harrison", "Fernandez", "Mcdonald", "Woods", "Washington",
+    "Kennedy", "Wells", "Vargas", "Henry", "Chen", "Freeman", "Webb", "Tucker", "Guzman", "Burns", "Crawford",
+    "Olson", "Simpson", "Porter", "Hunter", "Gordon", "Mendez", "Silva", "Shaw", "Snyder", "Mason", "Dixon",
+    "Munoz", "Hunt", "Hicks", "Holmes", "Palmer", "Wagner", "Black", "Robertson", "Boyd", "Rose", "Stone",
+    "Salazar", "Fox", "Warren", "Mills", "Meyer", "Rice", "Schmidt", "Garza", "Daniels", "Ferguson", "Nichols",
+    "Stephens", "Soto", "Weaver", "Ryan", "Gardner", "Payne", "Grant", "Dunn", "Kelley", "Spencer", "Hawkins",
+    "Arnold", "Pierce", "Vazquez", "Hansen", "Peters", "Santos", "Hart", "Bradley", "Knight", "Elliott",
+    "Cunningham", "Duncan", "Armstrong", "Hudson", "Carroll", "Lane", "Riley", "Andrews", "Alvarado", "Ray",
+    "Delgado", "Berry", "Perkins", "Hoffman", "Johnston", "Matthews", "Pena", "Richards", "Contreras", "Willis",
+    "Carpenter", "Lawrence", "Sandoval", "Guerrero", "George", "Chapman", "Rios", "Estrada", "Ortega", "Watkins",
+    "Greene", "Nunez", "Wheeler", "Valdez", "Harper", "Burke", "Larson", "Santiago", "Maldonado", "Morrison",
+    "Franklin", "Carlson", "Austin", "Dominguez", "Carr", "Lawson", "Jacobs", "Obrien", "Lynch", "Singh", "Vega",
+    "Bishop", "Montgomery", "Oliver", "Jensen", "Harvey", "Williamson", "Gilbert", "Dean", "Sims", "Espinoza",
+    "Howell", "Li", "Wong", "Reid", "Hanson", "Le", "Mccoy", "Garrett", "Burton", "Fuller", "Wang", "Weber",
+    "Welch", "Rojas", "Lucas", "Marquez", "Fields", "Park", "Yang", "Little", "Banks", "Padilla", "Day", "Walsh",
+    "Bowman", "Schultz", "Luna", "Fowler", "Mejia", "Davidson", "Acosta", "Brewer", "May", "Holland", "Juarez",
+    "Newman", "Pearson", "Curtis", "Cortez", "Douglas", "Schneider", "Joseph", "Barrett", "Navarro", "Figueroa",
+    "Keller", "Avila", "Wade", "Molina", "Stanley", "Hopkins", "Campos", "Barnett", "Bates", "Chambers", "Caldwell",
+    "Beck", "Lambert", "Miranda", "Byrd", "Craig", "Ayala", "Lowe", "Frazier", "Powers", "Neal", "Leonard", "Gregory",
+    "Carrillo", "Sutton", "Fleming", "Rhodes", "Shelton", "Schwartz", "Norris", "Jennings", "Watts", "Duran", "Walters",
+    "Cohen", "Mcdaniel", "Morrison", "George", "Jacobs", "Reeves", "Gilbert", "Chen", "Gardner", "Hansen")
+
+  #here you can find all continents, you can put your own presets in aswell
+class nationality:
+    
+    Asisa = ("Afghanistan", "Armenia", "Azerbaijan", "Bahrain", "Bangladesh", "Bhutan", "Brunei", "Cambodia", "China",
+            "Cyprus", "Georgia", "India", "Indonesia", "Iran", "Iraq", "Israel", "Japan", "Jordan", "Kazakhstan", "Kuwait",
+            "Kyrgyzstan", "Laos", "Lebanon", "Malaysia", "Maldives", "Mongolia", "Myanmar", "Nepal", "North Korea", "Oman",
+            "Pakistan", "Palestine", "Philippines", "Qatar", "Russia", "Saudi Arabia", "Singapore",
+            "South Korea", "Sri Lanka", "Syria", "Taiwan", "Tajikistan", "Thailand", "Timor-Leste", "Largest part of Turkey",
+            "Turkmenistan", "United Arab Emirates", "Uzbekistan", "Vietnam", "Yemen")
+
+    North_America = ('Antigua and Barbuda', 'Bahamas', 'Barbados', 'Belize', 'Canada',
+                    'Costa Rica', 'Cuba', 'Dominica', 'Dominican Republic', 'El Salvador',
+                    'Grenada', 'Guatemala', 'Haiti', 'Honduras', 'Jamaica',
+                    'Mexico', 'Nicaragua', 'Panama', 'Saint Kitts and Nevis', 'Saint Lucia',
+                    'Saint Vincent and the Grenadines', 'Trinidad and Tobago', 'United States')
+    
+    Europe = ('Albania', 'Andorra', 'Austria', 'Belarus', 'Belgium',
+                'Bosnia and Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic',
+                'Denmark', 'Estonia', 'Finland', 'France', 'Germany',
+                'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy',
+                'Latvia', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Malta',
+                'Moldova', 'Monaco', 'Montenegro', 'Netherlands', 'North Macedonia',
+                'Norway', 'Poland', 'Portugal', 'Romania', 'San Marino',
+                'Serbia', 'Slovakia', 'Slovenia', 'Spain', 'Sweden',
+                'Switzerland', 'Ukraine', 'United Kingdom', 'Vatican City')
+    
+    Antartica = ('Antartica')
+
+    South_America = ('Argentina', 'Bolivia', 'Brazil', 'Chile', 'Colombia',
+                    'Ecuador', 'Guyana', 'Paraguay', 'Peru', 'Suriname',
+                    'Uruguay', 'Venezuela')
+    
+    Africa = ('Algeria', 'Angola', 'Benin', 'Botswana', 'Burkina Faso',
+              'Burundi', 'Cabo Verde', 'Cameroon', 'Central African Republic', 'Chad',
+              'Comoros', 'Democratic Republic of the Congo', 'Djibouti', 'Egypt', 'Equatorial Guinea',
+              'Eritrea', 'Eswatini', 'Ethiopia', 'Gabon', 'Gambia',
+              'Ghana', 'Guinea', 'Guinea-Bissau', 'Ivory Coast', 'Kenya',
+              'Lesotho', 'Liberia', 'Libya', 'Madagascar', 'Malawi',
+              'Mali', 'Mauritania', 'Mauritius', 'Morocco', 'Mozambique',
+              'Namibia', 'Niger', 'Nigeria', 'Rwanda', 'Sao Tome and Principe',
+              'Senegal', 'Seychelles', 'Sierra Leone', 'Somalia', 'South Africa',
+              'South Sudan', 'Sudan', 'Tanzania', 'Togo', 'Tunisia',
+              'Uganda', 'Zambia', 'Zimbabwe')
+    
+    Oceana = ('Australia', 'Fiji', 'Kiribati', 'Marshall Islands', 'Micronesia',
+              'Nauru', 'New Zealand', 'Palau', 'Papua New Guinea', 'Samoa',
+              'Solomon Islands', 'Tonga', 'Tuvalu', 'Vanuatu'
+)
+
+  #all these generate functions do the same thing (except new_age), but for easier reading purposes it's better you use them for what they're supposed to be used for.
+class Generate:
+    def new_age(age_list):
+        return random.randint(*age_list)
+
+    def new_name(name_list):
+        return random.choice(name_list) 
+
+    def new_nationality(country_list):
+        return random.choice(country_list)
+
+    def new_favorite_food(foods_list):
+        return random.choice(foods_list)
+
+    def new_hobby(hobby_list):
+        return random.choice(hobby_list)
+
+#this is an example, everything in this library uses OOP so its easy to use, i would recommend you put this in a python file called "FakeId" so when you want to use it in another project you can just type:
+  #from FakeId import name,ages,nantionality,food,hobbies.
+  
+print("Hey! my name is "+Generate.new_name(name.woman)+" :)")
+print("I am " + str(Generate.new_age(ages.pedo_catching)) + " Years old")
+print("And i come from " + Generate.new_nationality(nationality.North_America))
+print("My favorite food is " + Generate.new_favorite_food(food))
+print("my hobies are " + Generate.new_hobby(hobbies) + " and " + Generate.new_hobby(hobbies))
